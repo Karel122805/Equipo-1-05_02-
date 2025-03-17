@@ -1,0 +1,240 @@
+/* 🔹 GENERAL */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, hsl(224, 96%, 78%), #0470ce);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 🔹 HEADER */
+.header {
+    background-color: #1E3A8A;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenedor del logo y texto */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+/* 🔹 MAIN CONTENT */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Rectángulo blanco */
+.content-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+/* 🔹 FORMULARIOS */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-submit {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn {
+    background: #2563EB;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Estilo para el contenedor de botones */
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Separa los botones */
+    gap: 15px; /* Espacio entre botones */
+    margin-top: 20px; /* Separación del formulario */
+}
+
+/* Estilos para los botones */
+/* Estilo para el botón "Iniciar Sesión" */
+.btn {
+    background: #2563EB;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+/* Cambia el color cuando pase el mouse */
+.btn:hover {
+    background: #00318b; /* Azul más oscuro */
+    color: rgb(255, 255, 255);
+}
+
+.btn-reg {
+    background: #ff9900;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.btn-reg:hover {
+    background: #be6c00; /* Azul más oscuro */
+    color: rgb(255, 255, 255);
+}
+
+/* Estilo para el botón "Regresar a Menú" */
+.btn-secondary {
+    background: #ff2f28;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Cambia el color a amarillo cuando pase el mouse */
+.btn-secondary:hover {
+    background: #b10000; /* Amarillo */
+    color: rgb(255, 255, 255); /* Texto negro para mejor contraste */
+}
+
+
+/* 🔹 FOOTER */
+.footer {
+    background-color: #1E3A8A;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.styled-table thead {
+    background-color: #1E3A8A;
+    color: white;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Espaciado entre botones */
+    max-width: 300px; /* Ajusta el ancho máximo del contenedor */
+    margin: 20px auto; /* Centra el contenedor en la página */
+}
+
+.button-full {
+    width: 100%; /* Asegura que todos los botones ocupen el mismo ancho */
+    text-align: center;
+    padding: 12px; /* Asegura mismo alto en todos */
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Estilo específico para el botón de Cerrar Sesión */
+.logout-form {
+    width: 100%;
+}
+
+.logout-btn {
+    background-color: #dc3545; /* Rojo Bootstrap */
+    border-color: #dc3545;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Rojo más oscuro al pasar el mouse */
+    border-color: #bd2130;
+}
