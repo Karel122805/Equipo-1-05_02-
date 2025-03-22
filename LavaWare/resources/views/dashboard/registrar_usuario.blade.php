@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="main-container">
-    <div class="content-boxx">
+    <div class="product-form-con">
         <h2>Registrar Nuevo Usuario</h2>
 
         <!-- Mensajes de éxito o error -->
@@ -44,9 +44,15 @@
             </div>
 
             <!-- Botón de Registro -->
+<<<<<<< HEAD
             <div class="button-container">
                 <a href="{{ route('dueno.dashboard') }}" class="btn-men">Volver al Menú Principal</a>
                 <button type="submit" class="btn">Registrar Usuario</button>
+=======
+            <div class="d-flex justify-content-between mt-4 flex-wrap gap-2">
+                <a href="{{ route('dueno.dashboard') }}" class="btn-men">Volver al Menú Principal</a>
+                <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+>>>>>>> 6612130 (HU13 y actualizacion de archivos)
             </div>
 
         </form>

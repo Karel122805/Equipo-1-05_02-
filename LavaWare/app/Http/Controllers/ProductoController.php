@@ -36,7 +36,11 @@ class ProductoController extends Controller
             $query->where('name', 'like', '%' . $request->search . '%');
         }
 
+<<<<<<< HEAD
         $productos = $query->get(); // Puedes usar ->paginate(10) si prefieres
+=======
+        $productos = $query->get();
+>>>>>>> 6612130 (HU13 y actualizacion de archivos)
 
         return view('dueno.baja_productos', compact('productos'));
     }
@@ -51,4 +55,31 @@ class ProductoController extends Controller
 
         return redirect()->route('dueno.productos.baja')->with('success', 'Producto eliminado correctamente.');
     }
+<<<<<<< HEAD
+=======
+
+    /**
+     * Mostrar vista del inventario con filtros (Control de Inventario - HU07)
+     */
+    public function inventario(Request $request)
+{
+    $query = Product::query();
+
+    if ($request->filled('search')) {
+        $search = $request->search;
+
+        $query->where(function ($q) use ($search) {
+            $q->where('id', $search)
+              ->orWhere('name', 'like', "%$search%")
+              ->orWhere('brand', 'like', "%$search%")
+              ->orWhere('category', 'like', "%$search%");
+        });
+    }
+
+    $productos = $query->get();
+
+    return view('dueno.inventario', compact('productos'));
+}
+
+>>>>>>> 6612130 (HU13 y actualizacion de archivos)
 }

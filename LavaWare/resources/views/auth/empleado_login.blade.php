@@ -18,7 +18,7 @@
             </div>
 
             <!-- Contenedor para los botones -->
-            <div class="button-container">
+            <div class="d-flex justify-content-between mt-4 flex-wrap gap-2">
                 <button type="submit" class="btn">Iniciar Sesión</button>
                 <a href="{{ route('menu') }}" class="btn btn-men">Regresar a Menú</a>
             </div>
