@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\EmployeeSession; // Importamos el modelo
 
 class LoginController extends Controller
 {
@@ -23,7 +24,6 @@ class LoginController extends Controller
             }
         }
 
-        // 🔴 Devuelve mensaje de error si las credenciales no son correctas
         return redirect()->route('dueno.login.view')->withErrors(['error' => 'Correo o contraseña incorrectos.']);
     }
 
@@ -38,11 +38,17 @@ class LoginController extends Controller
             $user = Auth::user();
 
             if ($user->role === 'empleado') {
+                // 🔵 Registrar hora de entrada
+                EmployeeSession::create([
+                    'user_id' => $user->id,
+                    'ip_address' => $request->ip(),
+                    'login_time' => now()
+                ]);
+
                 return redirect()->route('empleado.dashboard')->with('success', '¡Bienvenido, Empleado!');
             }
         }
 
-        // 🔴 Devuelve mensaje de error si las credenciales no son correctas
         return redirect()->route('empleado.login.view')->withErrors(['error' => 'Correo o contraseña incorrectos.']);
     }
 
@@ -51,13 +57,27 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
+        $user = Auth::user();
+
+        // 🔴 Registrar hora de salida si es empleado
+        if ($user && $user->role === 'empleado') {
+            $lastSession = EmployeeSession::where('user_id', $user->id)
+                            ->whereNull('logout_time')
+                            ->latest()
+                            ->first();
+
+            if ($lastSession) {
+                $lastSession->update([
+                    'logout_time' => now()
+                ]);
+            }
+        }
+
+        // 🔁 Cerrar sesión
         Auth::logout();
-        
-        // Invalida la sesión y regenera el token CSRF
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        // Redirige al menú principal
         return redirect()->route('menu')->with('success', 'Sesión cerrada exitosamente.');
     }
 }

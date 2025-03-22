@@ -15,7 +15,7 @@
             <a href="{{ route('menu') }}" class="btn btn-info button-full">Registrar Nueva Secadora</a>
             <a href="{{ route('menu') }}" class="btn btn-success button-full">Generar Reporte</a>
             <a href="{{ route('menu') }}" class="btn btn-dark button-full">Inventario</a>
-            <a href="{{ route('menu') }}" class="btn btn-light button-full">Control de Horarios de Usuarios</a>
+            <a href="{{ route('dueno.sesiones') }}" class="btn btn-light button-full">Control de Horarios de Usuarios</a>
             <a href="{{ route('menu') }}" class="btn btn-primary button-full">Dashboard</a>
 
             <!-- Botón de Cerrar Sesión -->
