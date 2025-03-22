@@ -20,7 +20,7 @@
             <!-- Contenedor para los botones -->
             <div class="button-container">
                 <button type="submit" class="btn">Iniciar Sesión</button>
-                <a href="{{ route('menu') }}" class="btn btn-secondary">Regresar a Menú</a>
+                <a href="{{ route('menu') }}" class="btn btn-men">Regresar a Menú</a>
             </div>
         </form>
 

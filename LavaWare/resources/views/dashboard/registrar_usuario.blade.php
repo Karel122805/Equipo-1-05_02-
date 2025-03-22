@@ -45,7 +45,7 @@
 
             <!-- Botón de Registro -->
             <div class="button-container">
-                <a href="{{ route('dueno.dashboard') }}" class="btn-secondary">Volver al Panel</a>
+                <a href="{{ route('dueno.dashboard') }}" class="btn-men">Volver al Menú Principal</a>
                 <button type="submit" class="btn">Registrar Usuario</button>
             </div>
 

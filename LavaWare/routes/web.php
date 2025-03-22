@@ -5,6 +5,10 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\EmpleadoSessionController;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\ProductoController;
+>>>>>>> d7f6ef3 (HU12 y HU07)
 use Illuminate\Support\Facades\Auth;
 
 // 🔷 Menú principal
@@ -12,7 +16,7 @@ Route::get('/', function () {
     return view('menu');
 })->name('menu');
 
-// 🔹 Grupo de rutas para Dueño
+// Grupo de rutas para Dueño
 Route::prefix('dueno')->group(function () {
     // Iniciar sesión
     Route::get('/login', function () {
@@ -41,9 +45,29 @@ Route::prefix('dueno')->group(function () {
     // Registrar Usuarios (Empleados y Dueños)
     Route::get('/registrar-usuario', [UsuarioController::class, 'create'])->name('usuarios.create');
     Route::post('/registrar-usuario', [UsuarioController::class, 'store'])->name('usuarios.store');
+<<<<<<< HEAD
+=======
+
+    // Alta de Productos
+    Route::get('/alta-producto', function () {
+        return view('dueno.alta_producto');
+    })->name('dueno.productos.create');
+
+    Route::post('/productos', [ProductoController::class, 'store'])->name('dueno.productos.store');
+
+
+        // Vista para eliminar productos
+    Route::get('/baja-productos', [\App\Http\Controllers\ProductoController::class, 'index'])
+    ->name('dueno.productos.baja');
+
+    // Acción para eliminar producto
+    Route::delete('/productos/{id}', [\App\Http\Controllers\ProductoController::class, 'destroy'])
+    ->name('dueno.productos.destroy');
+
+>>>>>>> d7f6ef3 (HU12 y HU07)
 });
 
-// 🔹 Grupo de rutas para Empleado
+// rupo de rutas para Empleado
 Route::prefix('empleado')->group(function () {
     // Iniciar sesión
     Route::get('/login', function () {
@@ -65,7 +89,11 @@ Route::prefix('empleado')->group(function () {
     })->name('empleado.dashboard');
 });
 
+<<<<<<< HEAD
 // 🔸 Cerrar sesión para cualquier usuario
+=======
+// Cerrar sesión para cualquier usuario
+>>>>>>> d7f6ef3 (HU12 y HU07)
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // 🔧 Ruta fallback para evitar error "Route [login] not defined"

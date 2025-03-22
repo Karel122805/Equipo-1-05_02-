@@ -159,6 +159,26 @@ html, body {
     font-size: 16px;
 }
 
+.btn-men {
+    background: #4c96db;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+.btn-men:hover {
+    background: #2e5c86;
+    color: white;
+
+}
+
 /* Cambia el color a amarillo cuando pase el mouse */
 .btn-secondary:hover {
     background: #b10000; /* Amarillo */
@@ -387,3 +407,87 @@ html, body {
 .table-scroll-container::-webkit-scrollbar-thumb:hover {
     background: #0056b3;
 }
+<<<<<<< HEAD
+=======
+
+
+.product-form-container {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 40px auto;
+    border: 3px solid #6cb2eb; /* Azul suave */
+    text-align: center;
+}
+
+.product-form-container h2 {
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 25px;
+}
+
+/* Estilo de etiquetas y campos */
+.product-form-container label {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    color: #003366;
+    margin-bottom: 5px;
+}
+
+.product-form-container input[type="text"],
+.product-form-container input[type="number"] {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    border: 1px solid #b0c4de;
+    border-radius: 8px;
+}
+
+/* Botones */
+.btn-danger {
+    background-color: #e3342f;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #cc1f1a;
+}
+
+.btn-primary {
+    background-color: #00e013;
+    border: none;
+    padding: 10px 20px;
+    color: #000000;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #00a03d;
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+>>>>>>> d7f6ef3 (HU12 y HU07)

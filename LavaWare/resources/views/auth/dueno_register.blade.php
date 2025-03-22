@@ -30,7 +30,7 @@
         <div class="button-container">
                 <button type="submit" class="btn">Iniciar Sesión</button>
                 <button onclick="window.history.back()" class="btn-reg">Regresar</button>
-                <a href="{{ route('menu') }}" class="btn btn-secondary">Regresar a Menú</a>
+                <a href="{{ route('menu') }}" class="btn btn-men">Regresar a Menú</a>
         </div>
 
     </div>
