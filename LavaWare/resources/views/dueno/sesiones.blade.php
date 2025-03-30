@@ -2,15 +2,7 @@
 
 @section('content')
     <div class="session-history-containerr">
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <h1>Historial de Entrada y Salida de Empleados</h1>
-=======
         <h1>Control de Horario de Usuarios</h1>
->>>>>>> d7f6ef3 (HU12 y HU07)
-=======
-        <h1>Control de Horario de Usuarios</h1>
->>>>>>> 6612130 (HU13 y actualizacion de archivos)
 
         {{-- Formulario de búsqueda --}}
         <form method="GET" action="{{ route('dueno.sesiones') }}" class="session-search-form d-flex justify-content-center gap-4 flex-wrap">
@@ -68,17 +60,7 @@
             </table>
         </div>
         <div class="button-container">
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <a href="{{ route('dueno.dashboard') }}" class="btn-secondary">Volver al Panel</a>
-            </div>
-=======
         <a href="{{ route('dueno.dashboard') }}" class="btn-men">Volver al Menú Principal</a>
         </div>
->>>>>>> d7f6ef3 (HU12 y HU07)
-=======
-        <a href="{{ route('dueno.dashboard') }}" class="btn-men">Volver al Menú Principal</a>
-        </div>
->>>>>>> 6612130 (HU13 y actualizacion de archivos)
     </div>
 @endsection

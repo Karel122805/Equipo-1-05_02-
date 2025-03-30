@@ -5,11 +5,7 @@
     <h2>Eliminar Productos</h2>
 
     {{-- Formulario de búsqueda --}}
-<<<<<<< HEAD
-    <form method="GET" action="{{ route('dueno.productos.baja') }}" class="mb-4 d-flex justify-content-center gap-3 flex-wrap">
-=======
     <form method="GET" action="{{ route('dueno.productos.baja') }}" class="session-search-form d-flex justify-content-center gap-4 flex-wrap">
->>>>>>> 6612130 (HU13 y actualizacion de archivos)
         <input type="text" name="search" value="{{ request('search') }}" placeholder="Buscar producto..." class="form-control" style="width: 250px;">
         <button type="submit" class="btn btn-primary">Buscar</button>
         <a href="{{ route('dueno.productos.baja') }}" class="btn btn-secondary">Limpiar</a>

@@ -172,11 +172,7 @@ html, body {
 
 .btn-men {
     background: #4c96db;
-<<<<<<< HEAD
-    color: rgb(0, 0, 0);
-=======
     color: white;
->>>>>>> 6612130 (HU13 y actualizacion de archivos)
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -422,11 +418,6 @@ html, body {
 .table-scroll-container::-webkit-scrollbar-thumb:hover {
     background: #0056b3;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 6612130 (HU13 y actualizacion de archivos)
 
 
 .product-form-container {
@@ -508,7 +499,3 @@ html, body {
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
-<<<<<<< HEAD
->>>>>>> d7f6ef3 (HU12 y HU07)
-=======
->>>>>>> 6612130 (HU13 y actualizacion de archivos)

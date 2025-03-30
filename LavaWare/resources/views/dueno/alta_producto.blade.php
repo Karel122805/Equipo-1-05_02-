@@ -52,16 +52,10 @@
         </div>
 
         <div class="d-flex justify-content-between mt-4 flex-wrap gap-2">
-<<<<<<< HEAD
-        <a href="{{ route('dueno.dashboard') }}" class="btn-men">Volver al Menú Principal</a>
-        <a href="{{ route('dueno.productos.baja') }}" class="btn btn-danger">Eliminar producto</a>
-            <button type="submit" class="btn btn-primary">Agregar</button>
-=======
         <button type="submit" class="btn btn-primary">Registrar</button>
         <a href="{{ route('dueno.productos.baja') }}" class="btn btn-danger">Eliminar producto</a>
         <a href="{{ route('dueno.dashboard') }}" class="btn-men">Volver al Menú Principal</a>
 
->>>>>>> 6612130 (HU13 y actualizacion de archivos)
         </div>
     </form>
 </div>

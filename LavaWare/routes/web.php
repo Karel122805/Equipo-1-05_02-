@@ -5,14 +5,10 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\EmpleadoSessionController;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 use App\Http\Controllers\ProductoController;
->>>>>>> d7f6ef3 (HU12 y HU07)
-=======
-use App\Http\Controllers\ProductoController;
->>>>>>> 6612130 (HU13 y actualizacion de archivos)
+use App\Http\Controllers\LavadoraController;
+use App\Http\Controllers\SecadoraController;
+use App\Http\Controllers\PedidoController;  // Asegúrate de agregar el controlador de pedidos
 use Illuminate\Support\Facades\Auth;
 
 // Menú principal
@@ -43,53 +39,49 @@ Route::prefix('dueno')->group(function () {
     })->name('dueno.dashboard');
 
     // Ver sesiones de empleados
-    Route::get('/sesiones-empleados', [EmpleadoSessionController::class, 'index'])
-        ->name('dueno.sesiones')
-        ->middleware('auth');
+    Route::get('/sesiones-empleados', [EmpleadoSessionController::class, 'index'])->name('dueno.sesiones')->middleware('auth');
 
     // Registrar Usuarios
     Route::get('/registrar-usuario', [UsuarioController::class, 'create'])->name('usuarios.create');
     Route::post('/registrar-usuario', [UsuarioController::class, 'store'])->name('usuarios.store');
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
     // Alta de Productos
-=======
-
-    // 🔵 Alta de Productos (HU12)
->>>>>>> 6612130 (HU13 y actualizacion de archivos)
     Route::get('/alta-producto', function () {
         return view('dueno.alta_producto');
     })->name('dueno.productos.create');
-
     Route::post('/productos', [ProductoController::class, 'store'])->name('dueno.productos.store');
 
-<<<<<<< HEAD
-
-        // Vista para eliminar productos
-    Route::get('/baja-productos', [\App\Http\Controllers\ProductoController::class, 'index'])
-    ->name('dueno.productos.baja');
-
-    // Acción para eliminar producto
-    Route::delete('/productos/{id}', [\App\Http\Controllers\ProductoController::class, 'destroy'])
-    ->name('dueno.productos.destroy');
-
->>>>>>> d7f6ef3 (HU12 y HU07)
-});
-
-// rupo de rutas para Empleado
-=======
-    // 🔴 Baja de Productos (HU13)
+    // Baja de Productos
     Route::get('/baja-productos', [ProductoController::class, 'index'])->name('dueno.productos.baja');
     Route::delete('/productos/{id}', [ProductoController::class, 'destroy'])->name('dueno.productos.destroy');
 
-    // 🟢 Inventario (HU07)
+    // Inventario
     Route::get('/inventario', [ProductoController::class, 'inventario'])->name('dueno.inventario');
+
+    // Ruta para gestionar lavadoras
+    Route::get('/dueno/lavadoras', [LavadoraController::class, 'index'])->name('lavadoras.index');
+    Route::get('/dueno/registrar-lavadora', [LavadoraController::class, 'create'])->name('lavadoras.create');
+    Route::post('/dueno/lavadoras', [LavadoraController::class, 'store'])->name('lavadoras.store');
+    Route::get('/dueno/eliminar-lavadora', [LavadoraController::class, 'eliminar'])->name('lavadoras.eliminar');
+    Route::delete('/dueno/lavadoras/{id}', [LavadoraController::class, 'destroy'])->name('lavadoras.destroy');
+
+    // Ruta para gestionar secadoras
+    Route::get('/registrar-secadora', [SecadoraController::class, 'create'])->name('secadoras.create');
+    Route::post('/registrar-secadora', [SecadoraController::class, 'store'])->name('secadoras.store');
+    Route::get('/secadoras', [SecadoraController::class, 'index'])->name('secadoras.index');
+    Route::get('/eliminar-secadora', [SecadoraController::class, 'eliminar'])->name('secadoras.eliminar');
+    Route::delete('/secadoras/{id}', [SecadoraController::class, 'destroy'])->name('secadoras.destroy');
+
+    // Ruta para gestionar pedidos
+    Route::get('/pedidos/create', [PedidoController::class, 'create'])->name('empleado.pedidos.create'); // Ruta para crear un pedido
+    Route::post('/pedidos', [PedidoController::class, 'store'])->name('empleado.pedidos.store'); // Ruta para almacenar un pedido
+    Route::get('/pedidos', [PedidoController::class, 'index'])->name('empleado.pedidos.index'); // Ruta para ver todos los pedidos
+    Route::get('/pedidos/edit/{id}', [PedidoController::class, 'edit'])->name('empleado.pedidos.edit'); // Ruta para modificar un pedido
+    Route::put('/pedidos/{id}', [PedidoController::class, 'update'])->name('empleado.pedidos.update'); // Ruta para actualizar un pedido
+    Route::get('/pedidos/cancel/{id}', [PedidoController::class, 'cancel'])->name('empleado.pedidos.cancel'); // Ruta para cancelar un pedido
 });
 
 // Grupo de rutas para Empleado
->>>>>>> 6612130 (HU13 y actualizacion de archivos)
 Route::prefix('empleado')->group(function () {
 
     // Iniciar sesión
@@ -112,15 +104,7 @@ Route::prefix('empleado')->group(function () {
     })->name('empleado.dashboard');
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-// 🔸 Cerrar sesión para cualquier usuario
-=======
 // Cerrar sesión para cualquier usuario
->>>>>>> d7f6ef3 (HU12 y HU07)
-=======
-// Cerrar sesión para cualquier usuario
->>>>>>> 6612130 (HU13 y actualizacion de archivos)
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Ruta fallback para evitar error "Route [login] not defined"

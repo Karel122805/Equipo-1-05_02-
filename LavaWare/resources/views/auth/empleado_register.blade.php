@@ -34,7 +34,7 @@
         <p>¿Ya tienes cuenta? <a href="{{ route('empleado.login.view') }}">Inicia sesión aquí</a></p>
 
         <button onclick="window.history.back()" class="btn">Regresar</button>
-        <a href="{{ route('menu') }}" class="btn btn-men">Regresar a Menú</a>
+        <a href="{{ route('menu') }}" class="btn">Regresar a Menú</a>
 
 
     </div>

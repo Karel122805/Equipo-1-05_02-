@@ -12,6 +12,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        // Validación de los datos
         $validated = $request->validate([
             'name' => 'required|string',
             'category' => 'required|string',
@@ -20,8 +21,10 @@ class ProductoController extends Controller
             'stock' => 'required|integer|min:0'
         ]);
 
+        // Crear un nuevo producto en la base de datos
         Product::create($validated);
 
+        // Redirigir a la vista de alta de productos con un mensaje de éxito
         return redirect()->route('dueno.productos.create')->with('success', 'Producto registrado correctamente.');
     }
 
@@ -32,16 +35,15 @@ class ProductoController extends Controller
     {
         $query = Product::query();
 
+        // Filtrar productos por nombre si se proporciona un término de búsqueda
         if ($request->filled('search')) {
             $query->where('name', 'like', '%' . $request->search . '%');
         }
 
-<<<<<<< HEAD
-        $productos = $query->get(); // Puedes usar ->paginate(10) si prefieres
-=======
+        // Obtener productos filtrados o todos
         $productos = $query->get();
->>>>>>> 6612130 (HU13 y actualizacion de archivos)
 
+        // Retornar la vista de baja de productos
         return view('dueno.baja_productos', compact('productos'));
     }
 
@@ -50,36 +52,37 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
+        // Encontrar el producto por su ID y eliminarlo
         $producto = Product::findOrFail($id);
         $producto->delete();
 
+        // Redirigir a la vista de baja de productos con un mensaje de éxito
         return redirect()->route('dueno.productos.baja')->with('success', 'Producto eliminado correctamente.');
     }
-<<<<<<< HEAD
-=======
 
     /**
      * Mostrar vista del inventario con filtros (Control de Inventario - HU07)
      */
     public function inventario(Request $request)
-{
-    $query = Product::query();
+    {
+        $query = Product::query();
 
-    if ($request->filled('search')) {
-        $search = $request->search;
+        // Filtros para buscar productos por ID, nombre, marca o categoría
+        if ($request->filled('search')) {
+            $search = $request->search;
 
-        $query->where(function ($q) use ($search) {
-            $q->where('id', $search)
-              ->orWhere('name', 'like', "%$search%")
-              ->orWhere('brand', 'like', "%$search%")
-              ->orWhere('category', 'like', "%$search%");
-        });
+            $query->where(function ($q) use ($search) {
+                $q->where('id', $search)
+                  ->orWhere('name', 'like', "%$search%")
+                  ->orWhere('brand', 'like', "%$search%")
+                  ->orWhere('category', 'like', "%$search%");
+            });
+        }
+
+        // Obtener productos con los filtros aplicados
+        $productos = $query->get();
+
+        // Retornar la vista del inventario
+        return view('dueno.inventario', compact('productos'));
     }
-
-    $productos = $query->get();
-
-    return view('dueno.inventario', compact('productos'));
-}
-
->>>>>>> 6612130 (HU13 y actualizacion de archivos)
 }
