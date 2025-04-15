@@ -21,6 +21,8 @@
     </main>
 
     @include('layouts.footer')
-</body>
 
+    {{-- Scripts personalizados de cada vista --}}
+    @yield('scripts')
+</body>
 </html>

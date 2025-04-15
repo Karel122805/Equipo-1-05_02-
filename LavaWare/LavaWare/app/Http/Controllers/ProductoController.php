@@ -24,8 +24,8 @@ class ProductoController extends Controller
         // Crear un nuevo producto en la base de datos
         Product::create($validated);
 
-        // Redirigir a la vista de alta de productos con un mensaje de éxito
-        return redirect()->route('dueno.productos.create')->with('success', 'Producto registrado correctamente.');
+        return redirect()->route('dueno.productos.create')
+            ->with('success', 'Producto registrado correctamente.');
     }
 
     /**
@@ -35,15 +35,12 @@ class ProductoController extends Controller
     {
         $query = Product::query();
 
-        // Filtrar productos por nombre si se proporciona un término de búsqueda
         if ($request->filled('search')) {
             $query->where('name', 'like', '%' . $request->search . '%');
         }
 
-        // Obtener productos filtrados o todos
         $productos = $query->get();
 
-        // Retornar la vista de baja de productos
         return view('dueno.baja_productos', compact('productos'));
     }
 
@@ -52,12 +49,11 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        // Encontrar el producto por su ID y eliminarlo
         $producto = Product::findOrFail($id);
         $producto->delete();
 
-        // Redirigir a la vista de baja de productos con un mensaje de éxito
-        return redirect()->route('dueno.productos.baja')->with('success', 'Producto eliminado correctamente.');
+        return redirect()->route('dueno.productos.baja')
+            ->with('success', 'Producto eliminado correctamente.');
     }
 
     /**
@@ -67,7 +63,6 @@ class ProductoController extends Controller
     {
         $query = Product::query();
 
-        // Filtros para buscar productos por ID, nombre, marca o categoría
         if ($request->filled('search')) {
             $search = $request->search;
 
@@ -79,10 +74,8 @@ class ProductoController extends Controller
             });
         }
 
-        // Obtener productos con los filtros aplicados
         $productos = $query->get();
 
-        // Retornar la vista del inventario
         return view('dueno.inventario', compact('productos'));
     }
 }

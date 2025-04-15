@@ -137,6 +137,44 @@ html, body {
     color: rgb(255, 255, 255);
 }
 
+.btn-ser {
+    background: #8500ad;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.btn-ser:hover {
+    background: #660c70; /* Azul más oscuro */
+    color: rgb(255, 255, 255);
+}
+
+.btn-serc {
+    background: #b4009c;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.btn-serc:hover {
+    background: #740040; /* Azul más oscuro */
+    color: rgb(255, 255, 255);
+}
+
 .btn-reg {
     background: #ff9900;
     color: white;
@@ -499,3 +537,4 @@ html, body {
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+

@@ -79,6 +79,9 @@ Route::prefix('dueno')->group(function () {
     Route::get('/pedidos/edit/{id}', [PedidoController::class, 'edit'])->name('empleado.pedidos.edit'); // Ruta para modificar un pedido
     Route::put('/pedidos/{id}', [PedidoController::class, 'update'])->name('empleado.pedidos.update'); // Ruta para actualizar un pedido
     Route::get('/pedidos/cancel/{id}', [PedidoController::class, 'cancel'])->name('empleado.pedidos.cancel'); // Ruta para cancelar un pedido
+
+    Route::get('/pedidos', [PedidoController::class, 'verPedidosDueno'])->name('dueno.pedidos.ver');
+
 });
 
 // Grupo de rutas para Empleado
@@ -98,11 +101,47 @@ Route::prefix('empleado')->group(function () {
     
     Route::post('/register', [RegisterController::class, 'registerEmpleado'])->name('empleado.register');
 
-    // Dashboard Empleado
+    // Dashboard Empleado (evita error empleado.dashboard)
     Route::get('/dashboard', function () {
         return view('dashboard.empleado');
     })->name('empleado.dashboard');
+
+    // Nuevo menú de selección
+    Route::get('/registrar-pedido', function () {
+        return view('empleado.registrar_pedido');
+    })->name('empleado.pedidos.menu');
+    
+    // Ver pedidos y generar PDF
+    Route::get('/pedidos/ver', [PedidoController::class, 'verPedidos'])->name('empleado.pedidos.ver');
+    Route::get('/pedidos/reporte', [PedidoController::class, 'generarPDF'])->name('empleado.pedidos.reporte');
+
+    // Ver listado de pedidos
+    Route::get('/empleado/pedidos', [PedidoController::class, 'index'])->name('empleado.pedidos.index');
+
+    // Editar pedido
+    Route::get('/empleado/pedidos/edit/{id}', [PedidoController::class, 'edit'])->name('empleado.pedidos.edit');
+
+
+    // Actualizar pedido
+    Route::put('/empleado/pedidos/{id}', [PedidoController::class, 'update'])->name('empleado.pedidos.update');
+
+
+    Route::get('/pedidos', [PedidoController::class, 'listaPedidos'])->name('empleado.pedidos.index');
+
+
+
+// Lavado con entrega
+Route::get('/registrar-pedido/entrega', [PedidoController::class, 'vistaLavadoEntrega'])->name('empleado.pedidos.dropoff.create');
+Route::post('/registrar-pedido/entrega', [PedidoController::class, 'store'])->name('empleado.pedidos.dropoff.store');
+
+// Autolavado
+Route::get('/registrar-pedido/autolavado', [PedidoController::class, 'vistaAutolavado'])->name('empleado.pedidos.autolavado.create');
+Route::post('/registrar-pedido/autolavado', [PedidoController::class, 'store'])->name('empleado.pedidos.autolavado.store');
+
+    
 });
+
+
 
 // Cerrar sesión para cualquier usuario
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

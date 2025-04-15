@@ -21,7 +21,6 @@
                     <th>Nombre</th>
                     <th>Marca</th>
                     <th>Categoría</th>
-                    <th>Cantidad</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +30,6 @@
                         <td>{{ $producto->name }}</td>
                         <td>{{ $producto->brand }}</td>
                         <td>{{ $producto->category }}</td>
-                        <td>{{ $producto->stock }}</td>
                     </tr>
                 @empty
                     <tr>
